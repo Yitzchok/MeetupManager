@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using MeetupManager.Core.Domain;
 using MeetupManager.Core.Repositories;
 using MeetupManager.Core.Services;
-using Microsoft.Win32;
+using SaveFileDialog = System.Windows.Forms.SaveFileDialog;
 
 namespace MeetupManager
 {
@@ -22,29 +21,20 @@ namespace MeetupManager
 
         private void btnExport_Click(object sender, RoutedEventArgs e)
         {
-            //no IoC for now so will just load it.
-
-            IList<RsvpItem> rsvpItems;
-
             //load data from meetup
             IMeetupService service = new MeetupService(new MeetupRepository(txbAPIKey.Text));
-            rsvpItems = service.GetRsvpsForEvent(long.Parse(txbEventId.Text));
+            IList<RsvpItem> rsvpItems = service.GetRsvpsForEvent(long.Parse(txbEventId.Text));
 
 
             //export it
-            IRsvpManager manager = new RsvpManager();
+            var saveFileDialog = new SaveFileDialog
+                         {
+                             InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+                         };
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("FirstName,LastName,RSVPName,RSVPAnswer,RSVPGuests");
-            foreach (var item in manager.GetAttendees(rsvpItems))
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                sb.AppendLine(string.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\"", item.FirstName, item.LastName, item.RSVPName, item.RSVPAnswer, item.RSVPGuests));
-            }
-
-            SaveFileDialog fd = new SaveFileDialog();
-            if (fd.ShowDialog() ?? false)
-            {
-                File.WriteAllText(fd.FileName, sb.ToString());
+                File.WriteAllText(saveFileDialog.FileName, new RsvpManager().GetAttendees(rsvpItems).ToCsv(true));
             }
         }
     }

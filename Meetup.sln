@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetupManager.Core", "app\MeetupManager.Core\MeetupManager.Core.csproj", "{954778F9-A54F-4C79-A2F2-73109B0FF56B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetupManager.Tests", "app\MeetupManager.Tests\MeetupManager.Tests.csproj", "{0F9CBFCB-7E7C-4715-A003-72B3068AE4DF}"

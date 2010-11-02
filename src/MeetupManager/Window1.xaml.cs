@@ -23,7 +23,13 @@ namespace MeetupManager
 
         private void btnExport_Click(object sender, RoutedEventArgs e)
         {
-            //load data from meetup
+            if (string.IsNullOrEmpty(txbAPIKey.Text) || string.IsNullOrEmpty(txbEventId.Text))
+            {
+                MessageBox.Show("Please enter all the information on the form.", "Export", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //load data from meetup should be async
             IMeetupService service = new MeetupService(new MeetupRepository(txbAPIKey.Text));
             IList<RsvpItem> rsvpItems = service.GetRsvpsForEvent(long.Parse(txbEventId.Text));
 
@@ -31,7 +37,8 @@ namespace MeetupManager
             var saveFileDialog = new SaveFileDialog
                          {
                              InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
-                             DefaultExt = "csv"
+                             DefaultExt = "csv",
+                             AddExtension = true
                          };
 
             if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)

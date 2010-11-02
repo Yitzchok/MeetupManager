@@ -1,6 +1,6 @@
 using MeetupManager.Core.Domain;
 
-namespace MeetupManager.Core.Repositories
+namespace MeetupManager.Data.Repositories
 {
     public interface IMemberRepository : IRepository<Member>
     {

@@ -1,6 +1,9 @@
+using System.Collections.Generic;
 using MeetupManager.Core.Domain;
 using MeetupManager.Core.Repositories;
+using MeetupManager.Data.Repositories;
 using NHibernate.Criterion;
+using System.Linq;
 
 namespace MeetupManager.Data
 {
@@ -17,10 +20,9 @@ namespace MeetupManager.Data
         {
 
             //this is in the wrong place - should be in the repository
-            Member member = _memberRepository.FindOne(
-                DetachedCriteria.For(typeof(Member))
-                    .Add(Restrictions.Eq("MemberName", name))
-                );
+            var member = _memberRepository.FindAll(
+                new Dictionary<string, object>() { { "MemberName", name } }
+                ).First();
 
             if (member == null)
                 return null;

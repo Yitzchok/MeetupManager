@@ -1,6 +1,6 @@
 using MeetupManager.Core.Domain;
 
-namespace MeetupManager.Core.Repositories
+namespace MeetupManager.Data
 {
     public interface IMemberService
     {

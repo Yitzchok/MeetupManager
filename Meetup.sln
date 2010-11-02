@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetupManager.Core", "app\MeetupManager.Core\MeetupManager.Core.csproj", "{954778F9-A54F-4C79-A2F2-73109B0FF56B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetupManager.Core", "src\MeetupManager.Core\MeetupManager.Core.csproj", "{954778F9-A54F-4C79-A2F2-73109B0FF56B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetupManager.Tests", "app\MeetupManager.Tests\MeetupManager.Tests.csproj", "{0F9CBFCB-7E7C-4715-A003-72B3068AE4DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetupManager.Tests", "src\MeetupManager.Tests\MeetupManager.Tests.csproj", "{0F9CBFCB-7E7C-4715-A003-72B3068AE4DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetupManager", "app\MeetupManager\MeetupManager.csproj", "{F319A3DF-7056-4BD5-BB8F-0DF36408A0FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetupManager", "src\MeetupManager\MeetupManager.csproj", "{F319A3DF-7056-4BD5-BB8F-0DF36408A0FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetupManager.Data", "app\MeetupManager.Data\MeetupManager.Data.csproj", "{046EB35A-F53F-4005-AA31-A3B5B11BA79A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetupManager.Data", "src\MeetupManager.Data\MeetupManager.Data.csproj", "{046EB35A-F53F-4005-AA31-A3B5B11BA79A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

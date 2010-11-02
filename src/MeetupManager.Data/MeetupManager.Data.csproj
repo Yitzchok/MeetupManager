@@ -82,6 +82,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repositories\IMemberRepository.cs" />
+    <Compile Include="Repositories\IMemberService.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="MemberService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

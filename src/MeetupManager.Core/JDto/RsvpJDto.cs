@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using MeetupManager.Core.Domain;
 using Newtonsoft.Json;
-using PublicDomain;
 
 namespace MeetupManager.Core.JDto
 {

@@ -1,7 +1,7 @@
 using System;
 using MeetupManager.Core.Domain;
-using MeetupManager.Core.Repositories;
 using MeetupManager.Data;
+using MeetupManager.Data.Repositories;
 using NUnit.Framework;
 using Rhino.Mocks;
 

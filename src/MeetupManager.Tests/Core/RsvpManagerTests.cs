@@ -59,26 +59,26 @@ namespace Tests.MeetupManager.Core
         [Test]
         public void if_the_person_has_three_names__first_two_goes_to_firstname()
         {
-            Attendee attendee = manager.GetAttendee(new RsvpItem { Name = "Some ones names" }, 0);
-            Assert.AreEqual("Some ones", attendee.FirstName);
-            Assert.AreEqual("names", attendee.LastName);
+            Attendee attendee = manager.GetAttendee(new RsvpItem { Name = "Barack Hussein Obama" }, 0);
+            Assert.AreEqual("Barack Hussein", attendee.FirstName);
+            Assert.AreEqual("Obama", attendee.LastName);
         }
 
         [Test]
         public void can_split_on_name_spaces()
         {
-            RsvpItem item = new RsvpItem { Name = "first last", Answers = new []{ "First Name Other Name Name Last" }, Guests = 2 };
+            RsvpItem item = new RsvpItem { Name = "first last", Answers = new[] { "First Person1 Second Person2 Third Person3" }, Guests = 2 };
             Attendee attendee = manager.GetAttendee(item, 0);
             Assert.AreEqual("First", attendee.FirstName);
-            Assert.AreEqual("Name", attendee.LastName);
+            Assert.AreEqual("Person1", attendee.LastName);
 
             Attendee attendee1 = manager.GetAttendee(item, 1);
-            Assert.AreEqual("Other", attendee1.FirstName);
-            Assert.AreEqual("Name", attendee1.LastName);
+            Assert.AreEqual("Second", attendee1.FirstName);
+            Assert.AreEqual("Person2", attendee1.LastName);
 
             Attendee attendee2 = manager.GetAttendee(item, 2);
-            Assert.AreEqual("Name", attendee2.FirstName);
-            Assert.AreEqual("Last", attendee2.LastName);
+            Assert.AreEqual("Third", attendee2.FirstName);
+            Assert.AreEqual("Person3", attendee2.LastName);
         }
 
 

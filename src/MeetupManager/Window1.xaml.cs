@@ -38,7 +38,8 @@ namespace MeetupManager
                          {
                              InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
                              DefaultExt = "csv",
-                             AddExtension = true
+                             AddExtension = true,
+                             Filter = @"CSV Files (*.csv)|*.csv"
                          };
 
             if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
